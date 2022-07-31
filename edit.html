@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block body %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('/static/img/admin.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Admin panel</h1>
+                            <span class="subheading">Manage your posts and change them</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <h1>Basic Action</h1>
+        
+        <a href="/dashbord"><button class="btn btn-primary text-uppercase">Dashbord home</button></a>
+        <a href="/logout"><button class="btn btn-primary text-uppercase">Logout</button></a>
+        <hr>
+        <h1>Add/Edit posts</h1>
+        <form name="sentMessage" id="contactForm" data-sb-form-api-token="API_TOKEN" action="/edit/{{sno}}" method="POST">
+            <div class="form-floating">
+                <input class="form-control" id="title" name="title" type="text" placeholder="Title" data-sb-validations="required" value="{{post.title}}" />
+                <label for="name">Title</label>
+                
+            </div>
+            <div class="form-floating">
+                <input class="form-control" id="tline" name="tline" type="text" placeholder="Tagline" data-sb-validations="required,email" value="{{post.tagline}}"/>
+                <label for="email">Tagline</label>
+                
+            </div>
+            <div class="form-floating">
+                <input class="form-control" id="slug" name="slug" type="text" placeholder="Slug" data-sb-validations="required" value="{{post.slug}}"/>
+                <label for="phone">Slug</label>
+                
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" id="content" name="content" placeholder="Content" style="height: 12rem" data-sb-validations="required"  >{{post.containt}}</textarea>
+                <label for="message">Content</label>
+                
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" id="img_file" name="img_file" placeholder="Image file" style="height: 12rem" data-sb-validations="required"  >{{post.img_file}}</textarea>
+                <label for="message">Image File</label>
+                
+            </div>
+            <br />
+            <!-- Submit success message-->
+            <!---->
+            <!-- This is what your users will see when the form-->
+            <!-- has successfully submitted-->
+            <div class="d-none" id="submitSuccessMessage">
+                <div class="text-center mb-3">
+                    <div class="fw-bolder">Form submission successful!</div>
+                    To activate this form, sign up at
+                    <br />
+                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                </div>
+            </div>
+            <!-- Submit error message-->
+            <!---->
+            <!-- This is what your users will see when there is-->
+            <!-- an error submitting the form-->
+            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+            <!-- Submit Button-->
+            <button class="btn btn-primary" id="submitButton" type="submit">Submit</button>
+        </form>
+         
+
+
+                
+                  
+                </div>
+            </div>
+        </div>
+    {% endblock %}
